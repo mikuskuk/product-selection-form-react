@@ -1,46 +1,75 @@
-# Getting Started with Create React App
+# Product Selection Form (React/TypeScript)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple product selection form implemented in React using TypeScript. The form allows users to select a product, choose variations, and view a composite product code based on their selections.
 
-## Available Scripts
+## Components
 
-In the project directory, you can run:
+### CompositeCodeDisplay
 
-### `npm start`
+Props:
+- compositeCode: The composite product code to display.
+- generateCompositeCode: A function to generate the composite product code (not implemented in the provided code).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This component displays the composite product code based on the user's selections.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### ProductSelection
 
-### `npm test`
+Props:
+- products: An array of available products.
+- selectedProduct: The currently selected product.
+- handleProductChange: A function to handle changes in the selected product.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This component renders a dropdown to select a product from the list of available products.
 
-### `npm run build`
+### VariationDropdown
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Props:
+- variety: The variety of the product (e.g., color, size).
+- varietyData: Information about the variety, including options.
+- handleVarietyChange: A function to handle changes in the selected variety and option.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This component renders a dropdown to select options for a specific product variety.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## App Component
 
-### `npm run eject`
+The main App component is responsible for managing the state and rendering the form.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+State:
+- products: An array of available products.
+- selectedProduct: The currently selected product.
+- selectedVarieties: An array of selected product varieties and options.
+- compositeCode: The composite product code generated based on selections.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The App component handles changes to the selected product and product varieties. It calculates the composite product code based on the selected options.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Styling
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The app uses basic CSS for styling. It centers the form on the page, provides styling for labels and dropdowns, and displays the composite code in a styled box.
 
-## Learn More
+## Usage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Users can select a product from the dropdown list.
+2. For each variety of the selected product (e.g., color, size), users can choose options.
+3. The composite product code is automatically generated and displayed based on the selections.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Prerequisites
+
+Ensure that you have Node.js and npm (Node Package Manager) installed on your system.
+
+## Installation
+
+1. Clone the repository: `git clone git@github.com:mikuskuk/product-selection-form-react.git`
+2. Navigate to the project folder: `cd product-selection-form-react`
+3. Install dependencies: `npm install`
+
+## Running the App
+
+After installing the dependencies, you can run the app using the following command:
+
+```npm start```
+
+This will start the development server, and you can access the app in your web browser at `http://localhost:3000`.
+
+## Data Source
+
+The product data is loaded from a JSON file (`productData.json`) and includes information about available products, their varieties, and options. You can modify this data source to fit your specific use case.
