@@ -66,7 +66,9 @@ Ensure that you have Node.js and npm (Node Package Manager) installed on your sy
 
 After installing the dependencies, you can run the app using the following command:
 
-```npm start```
+```bash
+npm start
+```
 
 This will start the development server, and you can access the app in your web browser at `http://localhost:3000`.
 
